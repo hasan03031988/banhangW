@@ -49,7 +49,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BanHangWDbContext.cs" />
+    <Compile Include="Infrastructure\DbFactory.cs" />
+    <Compile Include="Infrastructure\Disposable.cs" />
+    <Compile Include="Infrastructure\IDbFactory.cs" />
+    <Compile Include="Infrastructure\IRepository.cs" />
+    <Compile Include="Infrastructure\IUnitOfWork.cs" />
+    <Compile Include="Infrastructure\RepositoryBase.cs" />
+    <Compile Include="Infrastructure\UnitOfWork.cs" />
+    <Compile Include="Migrations\201812181320318_InitialDB.cs" />
+    <Compile Include="Migrations\201812181320318_InitialDB.Designer.cs">
+      <DependentUpon>201812181320318_InitialDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ProductCategoryRepository.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -60,6 +75,15 @@
       <Project>{e8779fc0-8354-4fd1-8249-3e1d3c2aea6f}</Project>
       <Name>BanHangW.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BanHangW.Model\BanHangW.Model.csproj">
+      <Project>{5b1a267d-d995-4fb8-95b2-b714339f033d}</Project>
+      <Name>BanHangW.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201812181320318_InitialDB.resx">
+      <DependentUpon>201812181320318_InitialDB.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
