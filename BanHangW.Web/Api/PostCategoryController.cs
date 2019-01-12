@@ -23,18 +23,11 @@ namespace BanHangW.Web.Api
         {
             return CreateHttpResponse(request, () =>
             {
-                HttpResponseMessage response = null;
-                if (ModelState.IsValid)
-                {
-                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-                }
-                else
-                {
-                    var listCategory = _postCategoryService.GetAll();
+                var listCategory = _postCategoryService.GetAll();
 
-                    response = request.CreateResponse(HttpStatusCode.OK, listCategory);
+                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listCategory);
 
-                }
+
                 return response;
             });
         }
